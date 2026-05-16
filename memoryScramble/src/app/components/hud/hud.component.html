@@ -1,1 +1,15 @@
-<p>hud works!</p>
+<div class="hud">
+  <div class="hud-item">
+    <span class="hud-value" [ngClass]="timerClass">{{ state.timeLeft }}s</span>
+    <span class="hud-label">time left</span>
+  </div>
+  <div class="hud-item">
+    <span class="hud-value">{{ state.matchedPairs }} / {{ state.totalPairs }}</span>
+    <span class="hud-label">pairs found</span>
+  </div>
+  <div class="hud-item">
+    <span class="hud-value">{{ state.moves }}</span>
+    <span class="hud-label">moves</span>
+  </div>
+  <button class="restart-btn" (click)="restart.emit()">↺ Restart</button>
+</div>

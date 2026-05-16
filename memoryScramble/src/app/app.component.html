@@ -1,23 +1,17 @@
-<div class="app-preview">
-	<h2>test</h2>
-	<div class="preview-row">
-		<div class="preview-config">
-			<app-config></app-config>
-		</div>
-		<div class="preview-board">
-			<app-board [state]="previewState" (cardFlipped)="onPreviewFlip($event)"></app-board>
-		</div>
-	</div>
-</div>
+<ng-container *ngIf="state$ | async as state">
 
-<div class="preview-controls">
-	<h3>Controls</h3>
-	<div>Moves: {{ previewState.moves }} — Matched: {{ previewState.matchedPairs }}/{{ previewState.totalPairs }}</div>
-	<div class="control-buttons">
-		<button (click)="onPreviewFlip(1)">Flip card 1</button>
-		<button (click)="onPreviewFlip(2)">Flip card 2</button>
-		<button (click)="onPreviewFlip(3)">Flip card 3</button>
-		<button (click)="onPreviewFlip(4)">Flip card 4</button>
-	</div>
-</div>
+  <app-config *ngIf="state.status === GameStatus.IDLE"></app-config>
+
+  <div class="game-wrapper" *ngIf="state.status === GameStatus.PLAYING || state.status === GameStatus.WON || state.status === GameStatus.LOST">
+    <app-hud [state]="state" (restart)="onRestart()"></app-hud>
+    <app-board [state]="state" (cardFlipped)="onCardFlipped($event)"></app-board>
+  </div>
+
+  <app-game-over
+    *ngIf="state.status === GameStatus.WON || state.status === GameStatus.LOST"
+    [state]="state"
+    (playAgain)="onPlayAgain()"
+  ></app-game-over>
+
+</ng-container>
 

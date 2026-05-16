@@ -1,26 +1,19 @@
-.app-preview {
-	display: flex;
-	flex-direction: column;
-	gap: 12px;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.preview-row {
-	display: flex;
-	gap: 16px;
-	align-items: flex-start;
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #f5f3ff;
+  min-height: 100vh;
+  color: #1a1a1a;
 }
 
-.preview-board {
-	min-width: 220px;
-}
-
-.preview-controls {
-	margin-top: 12px;
-}
-
-.control-buttons {
-	margin-top: 8px;
-	display: flex;
-	gap: 8px;
+.game-wrapper {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
 }
 
