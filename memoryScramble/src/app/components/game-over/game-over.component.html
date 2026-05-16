@@ -1,1 +1,14 @@
-<p>game-over works!</p>
+<div class="game-over">
+    <div class="game-over-content">
+      <div class="icon">{{ isWin ? '🎉' : '⏰' }}</div>
+      <h3>{{ isWin ? 'You Win!' : "Time\'s Up!" }}</h3>
+      <p *ngIf="isWin">
+        You matched all {{ state.totalPairs }} pairs in {{ state.moves }} moves!
+      </p>
+      <p *ngIf="!isWin">
+        You matched {{ state.matchedPairs }} of {{ state.totalPairs }} pairs. Better luck next time!
+      </p>
+      <button class="btn-primary" (click)="playAgain.emit()">Play Again</button>
+    </div>
+  </div>
+  

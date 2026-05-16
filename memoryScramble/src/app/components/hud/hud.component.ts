@@ -5,7 +5,7 @@ import { GameState } from '../../models/game';
 @Component({
   selector: 'app-hud',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './hud.component.html',
   styleUrl: './hud.component.scss'
 })
