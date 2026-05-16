@@ -1,27 +1,48 @@
-# MemoryScramble
+# Memory-Scramble-Game
+Memory scramble is a game in which the player turns over face-down cards and tries to find matching pairs before the countdown timer runs out.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
+This project was built with **Angular CLI**  version 17.3.17 and **TypeScript**.
 
-## Development server
+## Prerequisites
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- [Node.js](https://nodejs.org/) v18 or higher
+- npm v9 or higher
 
-## Code scaffolding
+```
+node -v   # should be 18+
+npm -v    # should be 9+
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Installation & Run
 
-## Build
+# 1. Install dependencies
+run `npm install` to install the required dependencies
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+# 2. Start the dev server
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`
+or 
+Run `ng serve --open` and dev server will start on your local host automatically.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### How to Play
 
-## Running end-to-end tests
+1. On the **Setup screen**, enter:
+   - **Rows** — number of rows (2–8) must be even numbers
+   - **Columns** — number of columns (2–8) must be even numbers
+   - **Time Limit** — seconds before game over (10–300)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+2. Click **Start Game**.
 
-## Further help
+3. Click any face-down card to flip it.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+4. Click a second card to find a match.
+   - ✅ **Match** — both cards stay face-up.
+   - ❌ **No match** — both cards flip back face-down.
+
+5. Find all pairs before the timer hits zero to **win**!
+
+6. If the timer reaches zero before all pairs are matched, it's **game over**.
+
+
+
+
