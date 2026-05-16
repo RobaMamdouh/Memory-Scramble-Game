@@ -1,1 +1,13 @@
-<p>card works!</p>
+<div
+  class="card"
+  [class.flipped]="card.isFlipped || card.isMatched"
+  [class.matched]="card.isMatched"
+  (click)="onClick()"
+  role="button"
+  [attr.aria-label]="(card.isFlipped || card.isMatched) ? card.icon : 'Hidden card'"
+>
+  <div class="card-inner">
+    <div class="card-front">{{ card.icon }}</div>
+    <div class="card-back">?</div>
+  </div>
+</div>

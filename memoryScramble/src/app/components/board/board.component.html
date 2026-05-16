@@ -1,1 +1,7 @@
-<p>board works!</p>
+<div class="board" [ngStyle]="gridStyle">
+  <app-card
+    *ngFor="let card of state.cards; trackBy: trackByCard"
+    [card]="card"
+    (cardClick)="cardFlipped.emit($event)"
+  />
+</div>

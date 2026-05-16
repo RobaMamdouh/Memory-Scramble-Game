@@ -1,0 +1,26 @@
+.app-preview {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.preview-row {
+	display: flex;
+	gap: 16px;
+	align-items: flex-start;
+}
+
+.preview-board {
+	min-width: 220px;
+}
+
+.preview-controls {
+	margin-top: 12px;
+}
+
+.control-buttons {
+	margin-top: 8px;
+	display: flex;
+	gap: 8px;
+}
+

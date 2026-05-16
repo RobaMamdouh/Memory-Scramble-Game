@@ -1,0 +1,56 @@
+.card {
+  aspect-ratio: 1;
+  perspective: 600px;
+  cursor: pointer;
+
+  &.matched { cursor: default; }
+
+  &:not(.flipped):not(.matched):hover .card-inner {
+    transform: rotateY(10deg);
+  }
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease;
+  border-radius: 10px;
+}
+
+.card.flipped .card-inner,
+.card.matched .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  backface-visibility: hidden;
+}
+
+.card-front {
+  font-size: 2.2rem;
+  background: #f5f3ff;
+  border: 2px solid #ddd6fe;
+  transform: rotateY(180deg);
+}
+
+.card-back {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #a78bfa;
+  background: #ede9fe;
+  border: 2px solid #c4b5fd;
+}
+
+.card.matched .card-front {
+  background: #f0fdf4;
+  border-color: #86efac;
+}

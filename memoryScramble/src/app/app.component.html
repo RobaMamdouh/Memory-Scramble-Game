@@ -1,3 +1,23 @@
-<h2>Testingg</h2>
-<app-config></app-config>
+<div class="app-preview">
+	<h2>test</h2>
+	<div class="preview-row">
+		<div class="preview-config">
+			<app-config></app-config>
+		</div>
+		<div class="preview-board">
+			<app-board [state]="previewState" (cardFlipped)="onPreviewFlip($event)"></app-board>
+		</div>
+	</div>
+</div>
+
+<div class="preview-controls">
+	<h3>Controls</h3>
+	<div>Moves: {{ previewState.moves }} — Matched: {{ previewState.matchedPairs }}/{{ previewState.totalPairs }}</div>
+	<div class="control-buttons">
+		<button (click)="onPreviewFlip(1)">Flip card 1</button>
+		<button (click)="onPreviewFlip(2)">Flip card 2</button>
+		<button (click)="onPreviewFlip(3)">Flip card 3</button>
+		<button (click)="onPreviewFlip(4)">Flip card 4</button>
+	</div>
+</div>
 
