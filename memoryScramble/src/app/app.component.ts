@@ -8,6 +8,7 @@ import { ConfigComponent } from './components/config/config.component';
 import { BoardComponent } from './components/board/board.component';
 
 import { HudComponent }      from './components/hud/hud.component';
+import { GameOverComponent } from './components/game-over/game-over.component';
 
 @Component({
   selector: 'app-root',
