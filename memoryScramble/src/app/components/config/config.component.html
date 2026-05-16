@@ -1,21 +1,29 @@
 <div class="config-panel">
-  <h2>🃏 Memory Scramble</h2>
+  <div class="header">
+    <span class="icon">🧩</span>
+    <h3 class="title">Memory Scramble</h3>
+  </div>
   <p class="subtitle">Configure your game before starting</p>
 
   <form [formGroup]="form" (ngSubmit)="onStart()">
-
     <div class="field-row">
       <div class="field">
         <label for="nRows">Rows</label>
         <input id="nRows" type="number" formControlName="nRows" min="2" max="8" />
-        <span class="hint" *ngIf="form.get('nRows')?.invalid && form.get('nRows')?.touched">
+        <span class="hint" *ngIf="form.get('nRows')?.hasError('oddNumber') && form.get('nRows')?.touched">
+          Must be an even number
+        </span>
+        <span class="hint" *ngIf="form.get('nRows')?.hasError('minlength') || form.get('nRows')?.hasError('max') && form.get('nRows')?.touched">
           Must be between 2 and 8
         </span>
       </div>
       <div class="field">
         <label for="nColumns">Columns</label>
         <input id="nColumns" type="number" formControlName="nColumns" min="2" max="8" />
-        <span class="hint" *ngIf="form.get('nColumns')?.invalid && form.get('nColumns')?.touched">
+        <span class="hint" *ngIf="form.get('nColumns')?.hasError('oddNumber') && form.get('nColumns')?.touched">
+          Must be an even number
+        </span>
+        <span class="hint" *ngIf="form.get('nColumns')?.hasError('minlength') || form.get('nColumns')?.hasError('max') && form.get('nColumns')?.touched">
           Must be between 2 and 8
         </span>
       </div>
@@ -27,10 +35,6 @@
       <span class="hint" *ngIf="form.get('timeoutSeconds')?.invalid && form.get('timeoutSeconds')?.touched">
         Must be between 10 and 300 seconds
       </span>
-    </div>
-
-    <div class="error" *ngIf="form.errors?.['oddBoard']">
-      ⚠️ Rows × Columns must be an even number.
     </div>
 
     <button type="submit" [disabled]="form.invalid" class="start-btn">
