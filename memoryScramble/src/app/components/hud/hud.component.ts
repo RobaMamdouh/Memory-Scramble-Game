@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component , Input, Output, EventEmitter } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { GameState } from '../../models/game';
 
 @Component({
   selector: 'app-hud',
@@ -8,5 +10,12 @@ import { Component } from '@angular/core';
   styleUrl: './hud.component.scss'
 })
 export class HudComponent {
+  @Input() state!: GameState;
+  @Output() restart = new EventEmitter<void>();
 
+  get timerClass(): string {
+    if (this.state.timeLeft <= 10) return 'danger';
+    if (this.state.timeLeft <= 20) return 'warn';
+    return '';
+  }
 }

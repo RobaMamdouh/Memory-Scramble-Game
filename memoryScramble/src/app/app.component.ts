@@ -7,6 +7,8 @@ import { GameState, GameStatus } from './models/game';
 import { ConfigComponent } from './components/config/config.component';
 import { BoardComponent } from './components/board/board.component';
 
+import { HudComponent }      from './components/hud/hud.component';
+
 @Component({
   selector: 'app-root',
   standalone: true,
