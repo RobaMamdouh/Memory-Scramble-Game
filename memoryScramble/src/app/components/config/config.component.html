@@ -1,1 +1,41 @@
-<p>config works!</p>
+<div class="config-panel">
+  <h2>🃏 Memory Scramble</h2>
+  <p class="subtitle">Configure your game before starting</p>
+
+  <form [formGroup]="form" (ngSubmit)="onStart()">
+
+    <div class="field-row">
+      <div class="field">
+        <label for="nRows">Rows</label>
+        <input id="nRows" type="number" formControlName="nRows" min="2" max="8" />
+        <span class="hint" *ngIf="form.get('nRows')?.invalid && form.get('nRows')?.touched">
+          Must be between 2 and 8
+        </span>
+      </div>
+      <div class="field">
+        <label for="nColumns">Columns</label>
+        <input id="nColumns" type="number" formControlName="nColumns" min="2" max="8" />
+        <span class="hint" *ngIf="form.get('nColumns')?.invalid && form.get('nColumns')?.touched">
+          Must be between 2 and 8
+        </span>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="timeoutSeconds">Time limit (seconds)</label>
+      <input id="timeoutSeconds" type="number" formControlName="timeoutSeconds" min="10" max="300" />
+      <span class="hint" *ngIf="form.get('timeoutSeconds')?.invalid && form.get('timeoutSeconds')?.touched">
+        Must be between 10 and 300 seconds
+      </span>
+    </div>
+
+    <div class="error" *ngIf="form.errors?.['oddBoard']">
+      ⚠️ Rows × Columns must be an even number.
+    </div>
+
+    <button type="submit" [disabled]="form.invalid" class="start-btn">
+      Start Game
+    </button>
+
+  </form>
+</div>
