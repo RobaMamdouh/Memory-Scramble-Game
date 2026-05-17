@@ -21,11 +21,18 @@
   .hud-value {
     font-size: 1.25rem;
     font-weight: 600;
-    color: #1a1a1a;
-  
-    &.warn   { color: #d97706; }
-    &.danger { color: #dc2626; animation: pulse 0.8s ease-in-out infinite alternate; }
+    color: #111827; /* default dark value for non-timer items */
+    transition: color 180ms ease, transform 180ms ease;
+    will-change: color, transform;
   }
+
+  /* Timer-specific colouring */
+  .hud-value.timer {
+    color: var(--success, #16a34a);
+  }
+
+  .hud-value.timer.warn { color: #d97706; }
+  .hud-value.timer.danger { color: #dc2626; animation: pulse 0.8s ease-in-out infinite alternate; transform: scale(1.02); }
   
   .hud-label {
     font-size: 0.7rem;

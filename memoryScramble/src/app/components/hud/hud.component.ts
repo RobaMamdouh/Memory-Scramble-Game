@@ -7,7 +7,7 @@ import { GameState } from '../../models/game';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './hud.component.html',
-  styleUrl: './hud.component.scss'
+  styleUrls: ['./hud.component.scss']
 })
 export class HudComponent {
   @Input() state!: GameState;

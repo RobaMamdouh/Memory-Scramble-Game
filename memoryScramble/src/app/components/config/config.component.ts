@@ -27,7 +27,7 @@ export class ConfigComponent {
       {
         nRows:          [4, [Validators.required, Validators.min(2), Validators.max(8),evenBoardValidator]],
         nColumns:       [4, [Validators.required, Validators.min(2), Validators.max(8),evenBoardValidator]],
-        timeoutSeconds: [60, [Validators.required, Validators.min(10), Validators.max(300)]],
+        timeoutSeconds: [40, [Validators.required, Validators.min(10), Validators.max(300)]],
       },
     );
   }
